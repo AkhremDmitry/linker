@@ -1,8 +1,9 @@
 package com.asuscomm.reisin.linker.model;
 
+
 import javax.persistence.*;
 
-@Entity(name = "Group")
+@Entity(name = "links_group")
 @Table(name="links_group")
 public class Group {
 
