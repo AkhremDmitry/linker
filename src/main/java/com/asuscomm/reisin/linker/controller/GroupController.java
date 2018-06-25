@@ -1,4 +1,4 @@
-package com.asuscomm.reisin.linker.config;
+package com.asuscomm.reisin.linker.controller;
 
 import com.asuscomm.reisin.linker.model.Group;
 import com.asuscomm.reisin.linker.service.GroupService;
