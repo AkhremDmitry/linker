@@ -11,13 +11,13 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class GroupServiceImpl {
+public class GroupServiceImpl implements GroupService{
 
     @Autowired
     private GroupDao groupDao;
 
     @Transactional
-    public long save(Group group) {
+    public int save(Group group) {
         return groupDao.save(group);
     }
 

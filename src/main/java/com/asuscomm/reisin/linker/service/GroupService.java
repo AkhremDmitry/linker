@@ -1,6 +1,7 @@
 package com.asuscomm.reisin.linker.service;
 
 import com.asuscomm.reisin.linker.model.Group;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
