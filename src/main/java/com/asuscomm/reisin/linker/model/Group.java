@@ -1,11 +1,9 @@
 package com.asuscomm.reisin.linker.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "links_group")
+//@Entity(name = "links_group")
+@Table(name="links_group")
 public class Group {
 
     @Id
