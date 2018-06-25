@@ -9,19 +9,19 @@ public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int groupId;
-    private String groupName;
+    private int group_Id;
+    private String group_Name;
 
     public int getGroupId() {
-        return groupId;
+        return group_Id;
     }
 
     public String getGroupName() {
-        return groupName;
+        return group_Name;
     }
 
     public void setGroupName(String groupName) {
-        this.groupName = groupName;
+        this.group_Name = groupName;
     }
 
     @Override
@@ -31,22 +31,22 @@ public class Group {
 
         Group group = (Group) o;
 
-        if (groupId != group.groupId) return false;
-        return groupName != null ? groupName.equals(group.groupName) : group.groupName == null;
+        if (group_Id != group.group_Id) return false;
+        return group_Name != null ? group_Name.equals(group.group_Name) : group.group_Name == null;
     }
 
     @Override
     public int hashCode() {
-        int result = groupId;
-        result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
+        int result = group_Id;
+        result = 31 * result + (group_Name != null ? group_Name.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Group{" +
-                "groupId=" + groupId +
-                ", groupName='" + groupName + '\'' +
+                "groupId=" + group_Id +
+                ", groupName='" + group_Name + '\'' +
                 '}';
     }
 }

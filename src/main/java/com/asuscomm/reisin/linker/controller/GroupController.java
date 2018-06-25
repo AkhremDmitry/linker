@@ -4,10 +4,7 @@ import com.asuscomm.reisin.linker.model.Group;
 import com.asuscomm.reisin.linker.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,12 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-    @PostMapping("/save")
+    /**
+     * https://www.boraji.com/spring-mvc-4-hibernate-5-restful-crud-operations-example
+     *
+     *
+     * */
+    @PostMapping("/group")
     public ResponseEntity<?> save(@RequestBody Group group) {
         int id = groupService.save(group);
         return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
@@ -26,13 +28,29 @@ public class GroupController {
     @GetMapping("/groups")
     public ResponseEntity<List<Group>> list() {
         List<Group> groups = groupService.list();
+
+        for (Group i:groups){
+            System.out.println(i.toString());
+        }
         return ResponseEntity.ok().body(groups);
     }
 
-    @GetMapping("/")
-    public ResponseEntity<String> hi() {
-        return ResponseEntity.ok().body("HI");
+    @GetMapping("/group/{id}")
+    public ResponseEntity<Group> get(@PathVariable("id") int id) {
+        Group group = groupService.get(id);
+        return ResponseEntity.ok().body(group);
     }
 
+    @PutMapping("/group/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Group group) {
+        groupService.update(id, group);
+        return ResponseEntity.ok().body("Group has been updated successfully.");
+    }
+
+    @DeleteMapping("/group/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+        groupService.delete(id);
+        return ResponseEntity.ok().body("Group has been deleted successfully.");
+    }
 
 }
