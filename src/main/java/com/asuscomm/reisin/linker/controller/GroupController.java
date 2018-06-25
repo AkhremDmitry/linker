@@ -17,16 +17,21 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-    @PostMapping("/group")
+    @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Group group) {
         int id = groupService.save(group);
         return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
     }
 
-    @GetMapping("/book")
+    @GetMapping("/groups")
     public ResponseEntity<List<Group>> list() {
-        List<Group> books = groupService.list();
-        return ResponseEntity.ok().body(books);
+        List<Group> groups = groupService.list();
+        return ResponseEntity.ok().body(groups);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<String> hi() {
+        return ResponseEntity.ok().body("HI");
     }
 
 
