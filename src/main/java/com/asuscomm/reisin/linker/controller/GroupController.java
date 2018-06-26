@@ -15,42 +15,50 @@ public class GroupController {
     private GroupService groupService;
 
     /**
-     * https://www.boraji.com/spring-mvc-4-hibernate-5-restful-crud-operations-example
-     *
-     *
-     * */
-
+     * This method returns message if new group was created successfully
+     * Request:
+     * <pre>
+     * {@code
+     * POST: /save
+     * }
+     * </pre>
+     * <pre>
+     * {@code
+     *  {
+     *    "name": "newGroup",
+     *   }
+     * }
+     * </pre>
+     * @return String message
+     */
     @PostMapping("/group")
     public ResponseEntity<?> save(@RequestBody Group group) {
         int id = groupService.save(group);
         return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
     }
 
-
-
     /**
      * This method returns a list of {@code Group} objects.
-     * It supports request
-     * URLS like:<br/>
-     *
+     * Request:
      * <pre>
      * {@code
      * GET: /groups
      * }
      * </pre>
-     *
      * <pre>
      * {@code
-     *      [{"groupId":2,"groupName":null},
-     *      {"groupId":3,"groupName":"Jenkins"},
-     *      {"groupId":4,"groupName":"Rest Service"},
-     *      {"groupId":5,"groupName":"Applications"},
-     *      {"groupId":6,"groupName":"Network"},
-     *      {"groupId":7,"groupName":"Databases"}]
+     *[
+     *  {
+     *    "id": 1,
+     *    "name": "group1"
+     *  },
+     *  {
+     *    "id": 2,
+     *    "name": "group2",
+     *  }
+     *]
      * }
      * </pre>
-     *
-     *
      *
      * @return List of Group object
      */
@@ -61,18 +69,60 @@ public class GroupController {
         return ResponseEntity.ok().body(groups);
     }
 
+    /**
+     * This method returns one {@code Group} object by id.
+     * Request:
+     * <pre>
+     * {@code
+     * GET: /group/{id}
+     * }
+     * </pre>
+     * <pre>
+     * {@code
+     *  {
+     *    "id": 1,
+     *    "name": "Applications"
+     *  }
+     * }
+     * </pre>
+     * @return Group object
+     */
     @GetMapping("/group/{id}")
     public ResponseEntity<Group> get(@PathVariable("id") int id) {
         Group group = groupService.get(id);
         return ResponseEntity.ok().body(group);
     }
 
+    /**
+     * This method returns message if group was updated by id successfully
+     * Request:
+     * <pre>
+     * {@code
+     * UPDATE: /group/{id}
+     * }
+     * </pre>
+     * <pre>
+     * {@code
+     * {
+     *    "name":"Applications"
+     * }
+     * </pre>
+     * @return String message
+     */
     @PutMapping("/group/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Group group) {
         groupService.update(id, group);
         return ResponseEntity.ok().body("Group has been updated successfully.");
     }
 
+    /**
+     * This method returns message if group was deleted by id successfully
+     * Request:
+     * <pre>
+     * DELETE: /group/{id}
+     * </pre>
+     * @return String message
+     */
     @DeleteMapping("/group/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         groupService.delete(id);
