@@ -3,25 +3,33 @@ package com.asuscomm.reisin.linker.model;
 
 import javax.persistence.*;
 
-@Entity(name = "links_group")
-@Table(name="links_group")
+@Entity(name = "Group")
+//@Table(name="Group")
 public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int group_Id;
-    private String group_Name;
+    private int groupId;
+    private String groupName;
 
     public int getGroupId() {
-        return group_Id;
+        return groupId;
     }
 
     public String getGroupName() {
-        return group_Name;
+        return groupName;
     }
 
     public void setGroupName(String groupName) {
-        this.group_Name = groupName;
+        this.groupName = groupName;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "groupId=" + groupId +
+                ", groupName='" + groupName + '\'' +
+                '}';
     }
 
     @Override
@@ -31,22 +39,14 @@ public class Group {
 
         Group group = (Group) o;
 
-        if (group_Id != group.group_Id) return false;
-        return group_Name != null ? group_Name.equals(group.group_Name) : group.group_Name == null;
+        if (groupId != group.groupId) return false;
+        return groupName != null ? groupName.equals(group.groupName) : group.groupName == null;
     }
 
     @Override
     public int hashCode() {
-        int result = group_Id;
-        result = 31 * result + (group_Name != null ? group_Name.hashCode() : 0);
+        int result = groupId;
+        result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Group{" +
-                "groupId=" + group_Id +
-                ", groupName='" + group_Name + '\'' +
-                '}';
     }
 }

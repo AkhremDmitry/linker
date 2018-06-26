@@ -2,65 +2,73 @@ package com.asuscomm.reisin.linker.model;
 
 import javax.persistence.*;
 
-@Entity(name = "link_info")
-@Table(name="link_info")
+@Entity(name = "Link")
+//@Table(name="link_info")
 public class Link {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int link_Id;
-    private String link_Name;
-    private String group_Id;
-    private String link_Url;
-    private int link_Port;
-    private String link_Description;
+    private int linkId;
+    private String linkName;
+    private String groupId;
+    private String linkUrl;
+    private int linkPort;
+    private String linkDescription;
 
-    public int getLink_Id() {
-        return link_Id;
+    public int getLinkId() {
+        return linkId;
     }
 
-    public void setLink_Id(int link_Id) {
-        this.link_Id = link_Id;
+    public String getLinkName() {
+        return linkName;
     }
 
-    public String getLink_Name() {
-        return link_Name;
+    public void setLinkName(String linkName) {
+        this.linkName = linkName;
     }
 
-    public void setLink_Name(String link_Name) {
-        this.link_Name = link_Name;
+    public String getGroupId() {
+        return groupId;
     }
 
-    public String getGroup_Id() {
-        return group_Id;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
-    public void setGroup_Id(String group_Id) {
-        this.group_Id = group_Id;
+    public String getLinkUrl() {
+        return linkUrl;
     }
 
-    public String getLink_Url() {
-        return link_Url;
+    public void setLinkUrl(String linkUrl) {
+        this.linkUrl = linkUrl;
     }
 
-    public void setLink_Url(String link_Url) {
-        this.link_Url = link_Url;
+    public int getLinkPort() {
+        return linkPort;
     }
 
-    public int getLink_Port() {
-        return link_Port;
+    public void setLinkPort(int linkPort) {
+        this.linkPort = linkPort;
     }
 
-    public void setLink_Port(int link_Port) {
-        this.link_Port = link_Port;
+    public String getLinkDescription() {
+        return linkDescription;
     }
 
-    public String getLink_Description() {
-        return link_Description;
+    public void setLinkDescription(String linkDescription) {
+        this.linkDescription = linkDescription;
     }
 
-    public void setLink_Description(String link_Description) {
-        this.link_Description = link_Description;
+    @Override
+    public String toString() {
+        return "Link{" +
+                "linkId=" + linkId +
+                ", linkName='" + linkName + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", linkUrl='" + linkUrl + '\'' +
+                ", linkPort=" + linkPort +
+                ", linkDescription='" + linkDescription + '\'' +
+                '}';
     }
 
     @Override
@@ -70,34 +78,22 @@ public class Link {
 
         Link link = (Link) o;
 
-        if (link_Id != link.link_Id) return false;
-        if (link_Port != link.link_Port) return false;
-        if (link_Name != null ? !link_Name.equals(link.link_Name) : link.link_Name != null) return false;
-        if (group_Id != null ? !group_Id.equals(link.group_Id) : link.group_Id != null) return false;
-        if (link_Url != null ? !link_Url.equals(link.link_Url) : link.link_Url != null) return false;
-        return link_Description != null ? link_Description.equals(link.link_Description) : link.link_Description == null;
+        if (linkId != link.linkId) return false;
+        if (linkPort != link.linkPort) return false;
+        if (linkName != null ? !linkName.equals(link.linkName) : link.linkName != null) return false;
+        if (groupId != null ? !groupId.equals(link.groupId) : link.groupId != null) return false;
+        if (linkUrl != null ? !linkUrl.equals(link.linkUrl) : link.linkUrl != null) return false;
+        return linkDescription != null ? linkDescription.equals(link.linkDescription) : link.linkDescription == null;
     }
 
     @Override
     public int hashCode() {
-        int result = link_Id;
-        result = 31 * result + (link_Name != null ? link_Name.hashCode() : 0);
-        result = 31 * result + (group_Id != null ? group_Id.hashCode() : 0);
-        result = 31 * result + (link_Url != null ? link_Url.hashCode() : 0);
-        result = 31 * result + link_Port;
-        result = 31 * result + (link_Description != null ? link_Description.hashCode() : 0);
+        int result = linkId;
+        result = 31 * result + (linkName != null ? linkName.hashCode() : 0);
+        result = 31 * result + (groupId != null ? groupId.hashCode() : 0);
+        result = 31 * result + (linkUrl != null ? linkUrl.hashCode() : 0);
+        result = 31 * result + linkPort;
+        result = 31 * result + (linkDescription != null ? linkDescription.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Link{" +
-                "link_Id=" + link_Id +
-                ", link_Name='" + link_Name + '\'' +
-                ", group_Id='" + group_Id + '\'' +
-                ", link_Url='" + link_Url + '\'' +
-                ", link_Port=" + link_Port +
-                ", link_Description='" + link_Description + '\'' +
-                '}';
     }
 }
