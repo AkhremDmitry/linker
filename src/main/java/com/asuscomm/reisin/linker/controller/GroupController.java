@@ -19,19 +19,45 @@ public class GroupController {
      *
      *
      * */
+
     @PostMapping("/group")
     public ResponseEntity<?> save(@RequestBody Group group) {
         int id = groupService.save(group);
         return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
     }
 
+
+
+    /**
+     * This method returns a list of {@code Group} objects.
+     * It supports request
+     * URLS like:<br/>
+     *
+     * <pre>
+     * {@code
+     * GET: /groups
+     * }
+     * </pre>
+     *
+     * <pre>
+     * {@code
+     *      [{"groupId":2,"groupName":null},
+     *      {"groupId":3,"groupName":"Jenkins"},
+     *      {"groupId":4,"groupName":"Rest Service"},
+     *      {"groupId":5,"groupName":"Applications"},
+     *      {"groupId":6,"groupName":"Network"},
+     *      {"groupId":7,"groupName":"Databases"}]
+     * }
+     * </pre>
+     *
+     *
+     *
+     * @return List of Group object
+     */
+
     @GetMapping("/groups")
     public ResponseEntity<List<Group>> list() {
         List<Group> groups = groupService.list();
-
-        for (Group i:groups){
-            System.out.println(i.toString());
-        }
         return ResponseEntity.ok().body(groups);
     }
 
