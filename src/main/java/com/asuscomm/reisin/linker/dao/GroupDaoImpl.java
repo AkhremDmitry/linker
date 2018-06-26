@@ -18,7 +18,6 @@ public class GroupDaoImpl implements GroupDao {
     @Autowired
     SessionFactory sessionFactory;
 
-
     public int save(Group group) {
         sessionFactory.getCurrentSession().save(group);
         return group.getId();
@@ -29,8 +28,6 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     public List<Group> list() {
-
-
             Session session = sessionFactory.getCurrentSession();
             CriteriaBuilder cb = session.getCriteriaBuilder();
             CriteriaQuery<Group> cq = cb.createQuery(Group.class);
@@ -38,7 +35,6 @@ public class GroupDaoImpl implements GroupDao {
             cq.select(root);
             Query<Group> query = session.createQuery(cq);
             return query.getResultList();
-
     }
 
     public void update(int id, Group group) {
