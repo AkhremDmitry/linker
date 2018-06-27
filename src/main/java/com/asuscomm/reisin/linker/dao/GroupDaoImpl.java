@@ -18,10 +18,9 @@ public class GroupDaoImpl implements GroupDao {
     @Autowired
     SessionFactory sessionFactory;
 
-
     public int save(Group group) {
         sessionFactory.getCurrentSession().save(group);
-        return group.getGroupId();
+        return group.getId();
     }
 
     public Group get(int id) {
@@ -29,19 +28,19 @@ public class GroupDaoImpl implements GroupDao {
     }
 
     public List<Group> list() {
-        Session session = sessionFactory.getCurrentSession();
-        CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery<Group> cq = cb.createQuery(Group.class);
-        Root<Group> root = cq.from(Group.class);
-        cq.select(root);
-        Query<Group> query = session.createQuery(cq);
-        return query.getResultList();
+            Session session = sessionFactory.getCurrentSession();
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Group> cq = cb.createQuery(Group.class);
+            Root<Group> root = cq.from(Group.class);
+            cq.select(root);
+            Query<Group> query = session.createQuery(cq);
+            return query.getResultList();
     }
 
     public void update(int id, Group group) {
         Session session = sessionFactory.getCurrentSession();
         Group group2 = session.byId(Group.class).load(id);
-        group2.setGroupName(group.getGroupName());
+        group2.setName(group.getName());
         session.flush();
     }
 
