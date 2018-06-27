@@ -37,9 +37,9 @@ public class GroupDaoImpl implements GroupDao {
             return query.getResultList();
     }
 
-    public void update(int id, Group group) {
+    public void update(Group group) {
         Session session = sessionFactory.getCurrentSession();
-        Group group2 = session.byId(Group.class).load(id);
+        Group group2 = session.byId(Group.class).load(group.getId());
         group2.setName(group.getName());
         session.flush();
     }

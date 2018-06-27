@@ -10,6 +10,6 @@ public interface GroupDao {
     int save(Group group);
     Group get(int id);
     List<Group> list();
-    void update(int id, Group group);
+    void update(Group group);
     void delete(int id);
 }

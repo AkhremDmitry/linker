@@ -109,9 +109,9 @@ public class GroupController {
      * </pre>
      * @return String message
      */
-    @PutMapping("/group/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Group group) {
-        groupService.update(id, group);
+    @PutMapping("/group")
+    public ResponseEntity<?> update(@RequestBody Group group) {
+        groupService.update(group);
         return ResponseEntity.ok().body("Group has been updated successfully.");
     }
 
