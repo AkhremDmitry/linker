@@ -30,8 +30,8 @@ public class GroupServiceImpl implements GroupService{
     }
 
     @Transactional
-    public void update(int id, Group group) {
-        groupDao.update(id, group);
+    public void update(Group group) {
+        groupDao.update(group);
     }
 
     @Transactional
