@@ -34,7 +34,7 @@ public class GroupController {
     @PostMapping("/group")
     public ResponseEntity<?> save(@RequestBody Group group) {
         int id = groupService.save(group);
-        return ResponseEntity.ok().body("New Group has been saved with ID:" + id);
+        return ResponseEntity.ok().body(id);
     }
 
     /**

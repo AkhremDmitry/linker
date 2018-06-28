@@ -38,7 +38,7 @@ public class LinkController {
     @PostMapping("/link")
     public ResponseEntity<?> save(@RequestBody Link link) {
         int id = linkService.save(link);
-        return ResponseEntity.ok().body("New link has been saved with ID:" + id);
+        return ResponseEntity.ok().body(id);
     }
 
     /**
