@@ -29,7 +29,8 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif"
      *   }
      * }
      * </pre>
@@ -58,7 +59,9 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif",
+     *    "activity":"true"
      *  },
      *  {
      *    "id": 2,
@@ -66,7 +69,9 @@ public class LinkController {
      *    "groupId": "9",
      *    "url": "http://address2.com",
      *    "port": 8888,
-     *    "description": "it's test link2"
+     *    "description": "it's test link2",
+     *    "logo":"http://blablabla/logo.gif",
+     *    "activity":"true"
      *  }
      * ]
      * }
@@ -96,7 +101,9 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif",
+     *    "activity":"true"
      *  }
      * }
      * </pre>
@@ -123,7 +130,8 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif"
      *   }
      * }
      * </pre>
