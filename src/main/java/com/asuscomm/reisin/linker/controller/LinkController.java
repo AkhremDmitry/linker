@@ -33,7 +33,7 @@ public class LinkController {
      *   }
      * }
      * </pre>
-     * @return String message
+     * @return {id}
      */
     @PostMapping("/link")
     public ResponseEntity<?> save(@RequestBody Link link) {
@@ -127,7 +127,7 @@ public class LinkController {
      *   }
      * }
      * </pre>
-     * @return String message
+     * @return {id}
      */
     @PutMapping("/link/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Link link) {

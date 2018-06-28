@@ -29,7 +29,7 @@ public class GroupController {
      *   }
      * }
      * </pre>
-     * @return String message
+     * @return {id}
      */
     @PostMapping("/group")
     public ResponseEntity<?> save(@RequestBody Group group) {
@@ -107,7 +107,7 @@ public class GroupController {
      *    "name":"Applications"
      * }
      * </pre>
-     * @return String message
+     * @return {id}
      */
     @PutMapping("/group")
     public ResponseEntity<?> update(@RequestBody Group group) {
