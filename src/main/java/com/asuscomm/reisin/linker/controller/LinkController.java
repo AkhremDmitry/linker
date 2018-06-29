@@ -157,5 +157,10 @@ public class LinkController {
         return ResponseEntity.ok().body("Link has been deleted successfully.");
     }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "Available";
+    }
+
 
 }
