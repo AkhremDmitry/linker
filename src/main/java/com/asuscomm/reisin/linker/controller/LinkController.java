@@ -29,16 +29,17 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif"
      *   }
      * }
      * </pre>
-     * @return String message
+     * @return {id}
      */
     @PostMapping("/link")
     public ResponseEntity<?> save(@RequestBody Link link) {
         int id = linkService.save(link);
-        return ResponseEntity.ok().body("New link has been saved with ID:" + id);
+        return ResponseEntity.ok().body(id);
     }
 
     /**
@@ -58,7 +59,9 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif",
+     *    "activity":"true"
      *  },
      *  {
      *    "id": 2,
@@ -66,7 +69,9 @@ public class LinkController {
      *    "groupId": "9",
      *    "url": "http://address2.com",
      *    "port": 8888,
-     *    "description": "it's test link2"
+     *    "description": "it's test link2",
+     *    "logo":"http://blablabla/logo.gif",
+     *    "activity":"true"
      *  }
      * ]
      * }
@@ -96,7 +101,9 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif",
+     *    "activity":"true"
      *  }
      * }
      * </pre>
@@ -123,11 +130,12 @@ public class LinkController {
      *    "groupId": "6",
      *    "url": "http://address.com",
      *    "port": 8888,
-     *    "description": "it's test link"
+     *    "description": "it's test link",
+     *    "logo":"http://blablabla/logo.gif"
      *   }
      * }
      * </pre>
-     * @return String message
+     * @return {id}
      */
     @PutMapping("/link/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Link link) {
@@ -147,6 +155,11 @@ public class LinkController {
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         linkService.delete(id);
         return ResponseEntity.ok().body("Link has been deleted successfully.");
+    }
+
+    @GetMapping("/ping")
+    public String ping() {
+        return "Available";
     }
 
 
